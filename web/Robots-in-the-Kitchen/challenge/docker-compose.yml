@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  robots_challenge:
+    build: .
+    container_name: robots_in_the_kitchen
+    ports:
+      - "127.0.0.1:81:80" # Wir lassen es auf Port 81 laufen, da Port 80 schon für die andere Challenge belegt ist!
+    restart: always

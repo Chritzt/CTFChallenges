@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dialog Network — Headquarters</title>
+    <style>
+        body { font-family: 'Times New Roman', Times, serif; background-color: #0b0c10; color: #c5a059; padding: 40px; margin: 0; display: flex; justify-content: center; }
+        .dashboard { max-width: 800px; width: 100%; background: #1f2833; padding: 40px; border: 1px solid #c5a059; border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        h1 { font-size: 32px; letter-spacing: 4px; border-bottom: 1px solid #c5a059; padding-bottom: 20px; margin-bottom: 20px; }
+        .welcome-box { background: #0b0c10; padding: 20px; border-left: 4px solid #c5a059; margin-bottom: 30px; }
+        .welcome-box h2 { margin-top: 0; color: #66fcf1; font-size: 20px; letter-spacing: 1px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .card { background: #0b0c10; padding: 20px; border: 1px solid #334155; border-radius: 4px; }
+        .card h3 { color: #66fcf1; margin-top: 0; font-size: 16px; letter-spacing: 1px; text-transform: uppercase; }
+        .restricted { color: #ef4444; font-family: monospace; font-size: 13px; margin-top: 15px; padding: 8px; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); }
+        .footer { text-align: center; margin-top: 40px; font-size: 11px; color: #555; border-top: 1px solid #334155; padding-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="dashboard">
+        <h1>DIALOG NODE // MAIN</h1>
+        
+        <div class="welcome-box">
+            <h2>Welcome to the Club.</h2>
+            <p style="color: #a4b3c6; line-height: 1.6;">You have successfully connected to the private network node. This space is dedicated to the advancement of decentralized global leadership and cross-industry synergy among vetted members.</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h3>Global Directory</h3>
+                <p style="color: #64748b; font-size: 14px;">Access the verified identity registry of active nodes, founders, and global partners.</p>
+                <div class="restricted">🔒 [RESTRICTED] Level 5 Omega Clearance required to render directory data.</div>
+            </div>
+            
+            <div class="card">
+                <h3>Network System Secret</h3>
+                <p style="color: #64748b; font-size: 14px;">Master environment variables and cryptographic root keys for node operations.</p>
+                <div class="restricted">🔒 [RESTRICTED] Higher authorization token missing from client session state.</div>
+            </div>
+        </div>
+
+        <div class="footer">STRICTLY CONFIDENTIAL — NODE LOGGED — DISCONNECT WHEN UNATTENDED</div>
+    </div>
+
+    <script src="/dashboard.js"></script>
+</body>
+</html>

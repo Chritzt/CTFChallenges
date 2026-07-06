@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  kiosk_app:
+    build: ./Cafeteria
+    container_name: coretech_cafeteria
+    ports:
+      - "8080:5000"
+    # Die Kiosk-App braucht die Flagge eigentlich nicht, da sie sie nur von der API holt.
+    # Wir lassen sie zur Sicherheit oder für andere Zwecke drin.
+
+  internal_api:
+    build: ./api
+    container_name: internal_api
+    # ✨ HIER MUSSTE DIE FLAGGE HIN! 
+    # Jetzt weiß Docker, dass dieser Container die Variable bekommen soll.
+    environment:
+      - FLAG=FLAG{h057_h34d3r_55rf_w3b_c4f3t3r14}

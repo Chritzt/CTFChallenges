@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  web_challenge:
+    build: .
+    container_name: five_finger_discount_store
+    ports:
+      - "5000:5000"
+    environment:
+      - FLAG=FLAG{7h15_15_wh47_1_c4ll_4_f1v3_f1ng3r_d15c0un7}
+    restart: always

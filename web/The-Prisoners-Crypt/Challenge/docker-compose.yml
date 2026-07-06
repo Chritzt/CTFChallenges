@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  prisoners-crypt:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - FLAG=FLAG{c113n7_51d3_57473_m4n1pul4710n_w1n5}
+      - PORT=3000

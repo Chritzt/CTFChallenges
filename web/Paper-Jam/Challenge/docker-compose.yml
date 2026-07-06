@@ -1,0 +1,17 @@
+services:
+  printer-challenge:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ctf-printer-challenge:1.0
+    container_name: ctf_office_printer
+    ports:
+      - "3000:3000"
+    environment:
+      - CTF_FLAG=FLAG{dynamische_docker_konfiguration_erfolgreich_2026}
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 512M
+    restart: always

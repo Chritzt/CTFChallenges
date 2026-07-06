@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Support Ticket System</title>
+</head>
+<body style="background-color: #e0e0e0; font-family: 'Courier New', Courier, monospace; margin: 0; padding: 50px;">
+
+    <div style="background-color: #ffffff; border: 2px solid #808080; padding: 30px; max-width: 600px; margin: 0 auto; box-shadow: 5px 5px 0px #808080;">
+        
+        <h1 style="margin-top: 0; color: #333;">Automated IT Helpdesk</h1>
+        <p style="color: #666; font-size: 0.9em;">Logged in as: <em>Standard_User</em></p>
+        <hr style="border: 1px solid #808080;">
+        
+        <p>Please describe your technical issue below. Your ticket will be processed automatically (and ignored appropriately).</p>
+
+        <form action="/check-ticket" method="POST">
+            <label for="problem" style="font-weight: bold; display: block; margin-bottom: 10px;">
+                Describe your problem:
+            </label>
+            <textarea 
+                id="problem" 
+                name="problem" 
+                rows="6" 
+                style="width: 100%; box-sizing: border-box; font-family: monospace; padding: 10px; border: 1px solid #808080; margin-bottom: 20px;" 
+                placeholder="Example: My printer exploded and the screen went black..."
+                required></textarea>
+            
+            <button 
+                type="submit" 
+                style="background-color: #d0d0d0; border: 2px solid #808080; padding: 10px 20px; font-family: monospace; font-weight: bold; cursor: pointer;">
+                Submit Ticket
+            </button>
+        </form>
+
+    </div>
+
+</body>
+</html>

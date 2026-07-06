@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Prisoner's Crypt — Interrogation Room 4</title>
+    <style>
+        body { background-color: #0d1117; color: #c9d1d9; font-family: 'Courier New', Courier, monospace; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .terminal { background-color: #161b22; border: 1px solid #30363d; border-radius: 6px; width: 650px; padding: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.7); }
+        h1 { color: #58a6ff; font-size: 22px; text-transform: uppercase; border-bottom: 1px solid #30363d; padding-bottom: 10px; margin-top: 0; }
+        .stats { display: flex; justify-content: space-between; background: #0d1117; padding: 10px 15px; border-radius: 4px; margin-bottom: 20px; font-size: 14px; border: 1px dashed #30363d; }
+        .score-val { color: #58a6ff; font-weight: bold; }
+        .story-text { line-height: 1.6; min-height: 120px; margin-bottom: 25px; white-space: pre-line; }
+        .actions { display: flex; gap: 20px; }
+        button { flex: 1; padding: 15px; font-family: inherit; font-size: 16px; font-weight: bold; cursor: pointer; border-radius: 4px; border: none; transition: background 0.2s; }
+        .btn-split { background-color: #238636; color: #fff; }
+        .btn-split:hover { background-color: #2ea043; }
+        .btn-steal { background-color: #da3633; color: #fff; }
+        .btn-steal:hover { background-color: #f85149; }
+        .flag-box { background: rgba(56, 139, 253, 0.15); border: 1px solid #388bfd; color: #58a6ff; padding: 15px; text-align: center; font-weight: bold; margin-top: 20px; border-radius: 4px; display: none; }
+    </style>
+</head>
+<body>
+
+    <div class="terminal">
+        <h1>Interrogation Room // Case: "The Crypt"</h1>
+        
+        <div class="stats">
+            <div>Round: <span id="round-val" class="score-val">1</span>/5</div>
+            <div>Your Jail Time: <span id="player-score" class="score-val">0</span> years</div>
+            <div>Anatoly's Jail Time: <span id="npc-score" class="score-val">0</span> years</div>
+        </div>
+
+        <div class="story-text" id="story">
+            Loading interrogation logs...
+        </div>
+
+        <div class="actions" id="action-buttons">
+            <button class="btn-split" onclick="playRound('split')">🤐 SILENT (Split)</button>
+            <button class="btn-steal" onclick="playRound('steal')">🗣️ TESTIFY (Steal)</button>
+        </div>
+
+        <div class="flag-box" id="flag-display"></div>
+    </div>
+
+<script>
+    const storyElement = document.getElementById("story");
+
+    function getNpcMove(round, lastMove) {
+        if (round === 5) return "steal";
+        if (round === 1) return "split";
+        return lastMove;
+    }
+
+    // reads state from the storage
+    function getGameState() {
+        return JSON.parse(localStorage.getItem("prisoners_crypt_state"));
+    }
+
+    // Write state into the storage
+    function saveGameState(round, pScore, nScore, nextNpcMove) {
+        const gameState = {
+            round: round,
+            player_score: pScore,
+            npc_score: nScore,
+            npc_next_move: nextNpcMove
+        };
+        localStorage.setItem("prisoners_crypt_state", JSON.stringify(gameState));
+    }
+
+    function initGame() {
+        document.getElementById("flag-display").style.display = "none";
+        document.getElementById("action-buttons").style.display = "flex";
+        
+        saveGameState(1, 0, 0, "split");
+        renderScreen();
+        
+        storyElement.innerText = "The detective slams the folder on the steel table.\n\n\"Your partner Anatoly is in the other room. If you both stay silent, we can only hold you for 1 year each on minor charges. If you rat him out but he stays silent, you go free and he gets 20 years. If you BOTH talk... you both get 10 years.\"\n\nWhat do you do for Round 1?";
+    }
+
+    function renderScreen() {
+        const state = getGameState();
+        if (!state) return;
+        
+        document.getElementById("round-val").innerText = state.round;
+        document.getElementById("player-score").innerText = state.player_score;
+        document.getElementById("npc-score").innerText = state.npc_score;
+    }
+
+    function playRound(playerChoice) {
+        let state = getGameState();
+        if (!state) return;
+
+        let currentRound = state.round;
+        let playerTotalJail = state.player_score;
+        let npcTotalJail = state.npc_score;
+        let npcChoice = state.npc_next_move;
+
+        let pRoundJail = 0;
+        let nRoundJail = 0;
+        let outcomeText = "";
+
+        if (playerChoice === "split" && npcChoice === "split") {
+            pRoundJail = 1; nRoundJail = 1;
+            outcomeText = "You both kept your mouths shut. The detective looks frustrated. You both receive 1 year.";
+        } else if (playerChoice === "steal" && npcChoice === "split") {
+            pRoundJail = 0; nRoundJail = 20;
+            outcomeText = "⚡ YOU BETRAYED HIM! You testified, while Anatoly kept quiet. You walk away with 0 years for this round, Anatoly takes a massive 20-year hit!";
+        } else if (playerChoice === "split" && npcChoice === "steal") {
+            pRoundJail = 20; nRoundJail = 0;
+            outcomeText = "❌ ANATOLY RAT-OUT! Anatoly confessed and blamed you, while you stayed loyal. You get slammed with 20 years, he goes free!";
+        } else if (playerChoice === "steal" && npcChoice === "steal") {
+            pRoundJail = 10; nRoundJail = 10;
+            outcomeText = "Chaos. You both tried to sell each other out. You both get 10 years.";
+        }
+
+        // Neue Scores berechnen
+        playerTotalJail += pRoundJail;
+        npcTotalJail += nRoundJail;
+
+        if (currentRound < 5) {
+            // prepare next round
+            let nextRound = currentRound + 1;
+            let nextNpcMove = getNpcMove(nextRound, playerChoice);
+            
+            saveGameState(nextRound, playerTotalJail, npcTotalJail, nextNpcMove);
+            renderScreen();
+            storyElement.innerText = outcomeText + "\n\n--- NEXT ROUND ---\nThe detective paces around you. Time for the next decision.";
+        } else {
+            // final Round
+            document.getElementById("action-buttons").style.display = "none";
+            localStorage.removeItem("prisoners_crypt_state");
+
+            // winning condition
+            if (playerTotalJail === 0 && npcTotalJail > 0) {
+                storyElement.innerText = outcomeText + "\n\n[!!!] SYSTEM ARCHIVE EXPLOITED.\nVerifying game state with the high-security server...";
+
+                fetch('/api/verify', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        player_score: playerTotalJail,
+                        npc_score: npcTotalJail,
+                        round: currentRound
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        let flagBox = document.getElementById("flag-display");
+                        flagBox.innerText = data.flag;
+                        flagBox.style.display = "block";
+                    } else {
+                        storyElement.innerText = "\n\n[ERROR] Server validation failed.";
+                    }
+                });
+            } else {
+                storyElement.innerText = outcomeText + "\n\n--- GAME OVER ---\nYou finished the 5 rounds, but you couldn't completely avoid jail time. You need to cheat the system.";
+                
+                let restartBtn = document.createElement("button");
+                restartBtn.innerText = "🔄 Retry Interrogation";
+                restartBtn.style.marginTop = "20px";
+                restartBtn.onclick = initGame;
+                storyElement.appendChild(restartBtn);
+            }
+        }
+    }
+
+    window.onload = initGame;
+</script>
+</body>
+</html>

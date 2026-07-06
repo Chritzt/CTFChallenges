@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  dialog_leak:
+    build: .
+    container_name: secret_dialog
+    ports:
+      - "127.0.0.1:82:80"
+    restart: always

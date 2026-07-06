@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dialog Network — Invitation Only</title>
+    <style>
+        body { font-family: 'Times New Roman', Times, serif; background-color: #0b0c10; color: #c5a059; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .login-card { background: #1f2833; padding: 40px; border-radius: 4px; border: 1px solid #c5a059; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5); max-width: 400px; width: 100%; }
+        h1 { font-size: 24px; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 30px; }
+        input { width: 100%; padding: 12px; margin-bottom: 20px; background: #0b0c10; border: 1px solid #45f3ff; color: #fff; box-sizing: border-box; font-size: 16px; text-align: center; }
+        button { background: #c5a059; color: #0b0c10; border: none; padding: 12px 30px; font-weight: bold; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; width: 100%; }
+        button:hover { background: #e5be79; }
+        .footer { margin-top: 30px; font-size: 11px; color: #666; letter-spacing: 1px; }
+        
+       
+        #directory-content { display: none; margin-top: 20px; padding: 15px; background: #0b0c10; border: 1px dashed #22c55e; color: #22c55e; font-family: monospace; font-size: 14px; word-break: break-all; }
+    </style>
+</head>
+<body>
+
+    <div class="login-card">
+        <h1>DIALOG</h1>
+        <p style="color: #66fcf1; font-size: 14px; margin-bottom: 20px;">Private Membership Node</p>
+        
+        <div id="login-form">
+            <input type="password" id="inviteCode" placeholder="ENTER VIP ACCESS TOKEN">
+            <button onclick="verifyToken()">Access Directory</button>
+        </div>
+
+        
+        <div id="directory-content"></div>
+
+        <div class="footer">STRICTLY CONFIDENTIAL — ENCRYPTED STATE ENABLED</div>
+    </div>
+
+    <script>
+        
+        window.__NEXT_DATA__ = {
+            props: {
+                pageProps: {
+                    config: {
+                        environment: "production",
+                        nodeId: "THIEL-VIP-NET-01",
+                        sessionAuthToken: "p_thiel_secret_access_token_2026_global"
+                    },
+                }
+            }
+        };
+
+        function verifyToken() {
+            const userInput = document.getElementById('inviteCode').value;
+            const targetToken = window.__NEXT_DATA__.props.pageProps.config.sessionAuthToken;
+
+            
+            if (userInput === targetToken) {
+                
+                document.getElementById('login-form').style.display = 'none';
+                
+
+                window.location.href = '/admin.html'
+            } else {
+                alert("Access Denied: Invalid VIP Token.");
+            }
+        }
+    </script>
+</body>
+</html>

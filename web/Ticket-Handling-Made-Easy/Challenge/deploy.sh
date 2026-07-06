@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# Farben für die Ausgabe definieren
+BLUE='\033[0;34m'
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
+# 1. Voraussetzungen prüfen
+if ! command -v docker &> /dev/null; then
+    echo -e "${RED}[+] docker command not found. Is docker installed?${NC}"
+    exit 1
+fi
+
+if ! docker ps &> /dev/null; then
+    echo -e "${RED}[+] \"docker ps\" failed. Is docker running?${NC}"
+    exit 1
+fi
+
+# 2. Container bauen
+echo -e "${BLUE}[+] Building Challenge Container: ticket-handling-made-easy${NC}"
+docker build -t localhost/ticket-handling-made-easy --platform linux/amd64 .
+
+# 3. Container ausführen
+echo -e "${BLUE}[+] Running Challenge Container on 127.0.0.1:80${NC}"
+docker run --name ticket-handling-made-easy \
+    --rm \
+    -p 127.0.0.1:80:5000 \
+    -t -i \
+    -e HOST=127.0.0.1 \
+    -e PORT=5000 \
+    -e FLAG="FLAG{7h15_71ck37_h45_b33n_d31373d_5ucc355fu11y}" \
+    --platform linux/amd64 \
+    localhost/ticket-handling-made-easy

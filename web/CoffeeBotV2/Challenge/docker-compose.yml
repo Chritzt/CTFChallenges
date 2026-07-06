@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  coffeebot-v2:
+    build: .
+    container_name: coffeebot-v2-container
+    ports:
+      - "8080:8080" # <-- Außen 8080, innen 8080
+    environment:
+      - PORT=8080
+      - FLAG=FLAG{flag_flag_flag}
+    restart: unless-stopped

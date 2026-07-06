@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>OfficeJet 9000 — Control Panel</title>
+    <style>
+        body {
+            background-color: #f5f5f5;
+            font-family: "Courier New", Courier, monospace;
+            color: #333;
+            margin: 40px;
+        }
+        .container {
+            background-color: #e8e8e8;
+            border: 3px double #999;
+            padding: 20px;
+            max-width: 600px;
+            box-shadow: 5px 5px 0px #bbb;
+        }
+        h2 {
+            color: #002d62;
+            border-bottom: 2px solid #002d62;
+            padding-bottom: 5px;
+        }
+        .status {
+            background-color: #fffde7;
+            border: 1px solid #fff59d;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 90%;
+            padding: 8px;
+            margin: 10px 0;
+            border: 2px solid #777;
+            font-family: inherit;
+        }
+        button {
+            background-color: #002d62;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #004085;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>🖨️ OfficeJet 9000 — Tray Manager</h2>
+
+    <div class="status">
+        Status: ONLINE | Paper Tray 1: OK | Paper Tray 2: OK
+    </div>
+
+    <p>Enter a new name for <strong>Paper tray 3</strong>:</p>
+
+    <form action="/updateTray" method="POST">
+        <input type="text" name="trayName" placeholder="for example Contracts" required>
+        <br><br>
+        <button type="submit">Generate Name</button>
+    </form>
+</div>
+
+</body>
+</html>
