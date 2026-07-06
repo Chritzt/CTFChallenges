@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  coffeebot-v2:
+    build: .
+    container_name: weddingbook-container
+    ports:
+      - "8080:8080" # <-- Außen 8080, innen 8080
+    environment:
+      - PORT=8080
+      - FLAG=FLAG{d0n7_7ru57_7h3_w3dd1ng_534rch}
+    restart: unless-stopped
