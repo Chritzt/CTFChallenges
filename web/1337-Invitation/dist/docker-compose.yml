@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  challenge:
+    build: .
+    image: 1337-invitation:latest
+    container_name: ctf-lan-party
+    ports:
+      - "5000:5000"
+    # Das Volume sorgt dafür, dass Änderungen an deiner app.py 
+    # sofort im Container aktiv werden, ohne dass du neu bauen musst!
+    volumes:
+      - ./app.py:/app/app.py
+    environment:
+      - FLASK_ENV=development
+    restart: unless-stopped
