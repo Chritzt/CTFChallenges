@@ -1,0 +1,28 @@
+_id: -1579416502
+name: the-prisoners-crypt
+display_name: "The-Prisoners-Crypt"
+category: web
+author:
+  name: "Chritzt"
+description: >-
+  You and your partner Anatoly have been captured and placed in separate interrogation
+  rooms. The detectives game theory seems mathematically airtight, but maybe you can
+  alter reality right under his nose to walk away completely free.
+connectinfo: >-
+  http://{{ infos['the-prisoners-crypt-web']['3000']['hostname'] }}
+deployment:
+- name: the-prisoners-crypt-web
+  buildcontext: challenge
+  sandboxed: false
+  ports:
+  - 3000/http
+  flag:
+    value: "CLA{c113n7_51d3_57473_m4n1pul4710n_w1n5_RAND}"
+    type: env_dynamic
+points:
+  initial: 550
+  decay: 50
+  minimum: 100
+  function: linear
+build: true
+check: false

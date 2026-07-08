@@ -18,7 +18,7 @@ window.__NEXT_DATA__ = {
                     { name: "M. Zuckerthal", role: "Guest", state: "Pending" }
                 ],
                 // Die Flagge liegt tief im unverschlüsselten Frontend-Speicherobjekt!
-                systemSecretFlag: "FLAG{j4v45cr1p7_bundl35_4r3_publ1c_f1l35}"
+                systemSecretFlag: "CLA{j4v45cr1p7_bundl35_4r3_publ1c_f1l35}"
             }
         }
     }

@@ -1,1 +1,1 @@
-& "C:\Program Files\Wireshark\text2pcap.exe" .\packet.txt .\challenge.pcap
+ "C:\Program Files\Wireshark\text2pcap.exe" .\packet.txt .\challenge.pcap

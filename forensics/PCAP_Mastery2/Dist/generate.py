@@ -1,7 +1,7 @@
 from scapy.all import IP, ICMP, wrpcap
 
 
-flag = "FLAG{ttl_c4n_4l50_h1d3_s3cr3t5}"
+flag = "CLA{ttl_c4n_4l50_h1d3_s3cr3t5}"
 
 pcap_packets = []
 

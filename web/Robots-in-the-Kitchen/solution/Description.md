@@ -6,4 +6,4 @@
 
 I would suggest to not give the source code for the challenge, otherwise it won't make to much sense.
 
-FLAG{r0b075_d0nt_l1k3_53cr375}
+CLA{r0b075_d0nt_l1k3_53cr375}

@@ -1,0 +1,26 @@
+_id: -458552827
+name: coffee-bot
+display_name: "Coffee Bot "
+category: web
+author:
+  name: "Chritzt"
+description: >-
+  We heared our Boss has a secret Drink option in the CoffeeBot system, now it is on you to find out the secret.
+connectinfo: >-
+  http://{{ infos['coffee-bot-web']['8080']['hostname'] }}
+deployment:
+- name: coffee-bot-web
+  buildcontext: challenge
+  sandboxed: false
+  ports:
+  - 8080/http
+  flag:
+    value: "CLA{345y_5ql_1nj3c710n_f0r_dr1nk5_RAND}"
+    type: env_dynamic
+points:
+  initial: 550
+  decay: 50
+  minimum: 100
+  function: linear
+build: true
+check: false

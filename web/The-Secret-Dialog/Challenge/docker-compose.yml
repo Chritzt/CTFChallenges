@@ -5,5 +5,5 @@ services:
     build: .
     container_name: secret_dialog
     ports:
-      - "127.0.0.1:82:80"
+      - "127.0.0.1:82:8080"
     restart: always

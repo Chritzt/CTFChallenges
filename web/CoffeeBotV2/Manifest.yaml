@@ -1,0 +1,26 @@
+_id: -458552827
+name: coffee-bot-v2
+display_name: "Coffee Bot V2"
+category: web
+author:
+  name: "Chritzt"
+description: >-
+  Now the Company banned Beer, but I have a weird feeling that they are once again hiding something from us. Please have a look at the application again.
+connectinfo: >-
+  http://{{ infos['coffee-bot-v2-web']['8080']['hostname'] }}
+deployment:
+- name: coffee-bot-v2-web
+  buildcontext: challenge
+  sandboxed: false
+  ports:
+  - 8080/http
+  flag:
+    value: "CLA{7h3_b33r_w45_f0und_0nc3_4g41n_RAND}"
+    type: env_dynamic
+points:
+  initial: 550
+  decay: 50
+  minimum: 100
+  function: linear
+build: true
+check: false

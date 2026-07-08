@@ -24,6 +24,6 @@ This code sends the userinput straight to the template.
 
 This code directly puts the user input into the template as a Template Expression (SpEL), which means if you have the right syntax, a command is executed.
 
-The Flag sits in the application.properties `challenge.flag=${CTF_FLAG:FLAG{default_local_fallback_flag}}` and simulates therefore a important software configuration.
+The Flag sits in the application.properties `challenge.flag=${FLAG:FLAG{default_local_fallback_flag}}` and simulates therefore a important software configuration.
 
 The Solution is to use this as a user input `${@environment.getProperty('challenge.flag')}`

@@ -3,4 +3,4 @@ SECRET INGREDIENT RECIPE v1.4
 1. Mix 200g of Cyber-Awareness
 2. Add a pinch of curiosity
 
-[+] FLAG: FLAG{r0b075_d0nt_l1k3_53cr375}
+[+] FLAG: CLA{r0b075_d0nt_l1k3_53cr375}

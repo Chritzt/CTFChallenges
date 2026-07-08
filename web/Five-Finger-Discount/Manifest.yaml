@@ -1,0 +1,28 @@
+_id: 1363141204
+name: five-finger-discount
+display_name: "Five Finger Discount"
+category: web
+author:
+  name: "Chritzt"
+description: >-
+  Welcome to the Five-Finger Discount Store, the most exclusive merchandise shop for
+  cybersecurity enthusiasts! We have everything a hacker's heart desires: stylish
+  shoes, trendy t-shirts, and the legendary, priceless Golden Jacket.
+connectinfo: >-
+  http://{{ infos['five-finger-discount-web']['8080']['hostname'] }}
+deployment:
+- name: five-finger-discount-web
+  buildcontext: challenge
+  sandboxed: false
+  ports:
+  - 8080/http
+  flag:
+    value: "CLA{7h15_15_wh47_1_c4ll_4_f1v3_f1ng3r_d15c0un7_RAND}"
+    type: env_dynamic
+points:
+  initial: 550
+  decay: 50
+  minimum: 100
+  function: linear
+build: true
+check: false

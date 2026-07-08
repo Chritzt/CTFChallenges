@@ -1,0 +1,28 @@
+_id: 666563512
+name: robots-in-the-kitchen
+display_name: "Robots In The Kitchen"
+category: web
+author:
+  name: "Chritzt"
+description: >-
+  Before you try to scan or hack the kitchen AI, check what instructions the developers
+  left behind for the search engines. Sometimes the map to the secret ingredients
+  is hidden right in plain sight for the bots.
+connectinfo: >-
+  http://{{ infos['robots-in-the-kitchen-web']['8080']['hostname'] }}
+deployment:
+- name: robots-in-the-kitchen-web
+  buildcontext: challenge
+  sandboxed: false
+  ports:
+  - 8080/http
+  flag:
+    value: "CLA{r0b075_d0nt_l1k3_53cr375}"
+    type: env_dynamic
+points:
+  initial: 550
+  decay: 50
+  minimum: 100
+  function: linear
+build: true
+check: false

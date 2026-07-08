@@ -1,0 +1,27 @@
+_id: -1090384991
+name: the-secret-dialog
+display_name: "The Secret Dialog"
+category: web
+author:
+  name: "Chritzt"
+description: >-
+  We found out that some rich people have a forum in Dublin and use a Website for
+  the guestlist, maybe you can find something.
+connectinfo: >-
+  http://{{ infos['the-secret-dialog-web']['8080']['hostname'] }}
+deployment:
+- name: the-secret-dialog-web
+  buildcontext: challenge
+  sandboxed: false
+  ports:
+  - 8080/http
+  flag:
+    value: "CLA{j4v45cr1p7_bundl35_4r3_publ1c_f1l35}"
+    type: env_dynamic
+points:
+  initial: 550
+  decay: 50
+  minimum: 100
+  function: linear
+build: true
+check: false

@@ -1,0 +1,28 @@
+_id: -336340115
+name: 1337-invitation
+display_name: "1337 Invitation"
+category: web
+author:
+  name: "Chritzt"
+description: >-
+  We want to attend the elite local school LAN party, but the registration is closed,
+  and only approved VIPs get the flag. They have an automated system where you can
+  generate your own custom seat ticket as a PDF.
+connectinfo: >-
+  http://{{ infos['1337-invitation-web']['5000']['hostname'] }}
+deployment:
+- name: 1337-invitation-web
+  buildcontext: challenge
+  sandboxed: false
+  ports:
+  - 5000/http
+  flag:
+    value: CLA{55rf_l4n_p4r7y_l0c4lh057_fr4gg3r_RAND}
+    type: env_dynamic
+points:
+  initial: 550
+  decay: 50
+  minimum: 100
+  function: linear
+build: true
+check: false

@@ -1,0 +1,26 @@
+_id: -1653356228
+name: paper-jam
+display_name: "Paper Jam"
+category: web
+author:
+  name: "Chritzt"
+description: >-
+  Print the Environment
+connectinfo: >-
+  http://{{ infos['paper-jam-web']['3000']['hostname'] }}
+deployment:
+- name: paper-jam-web
+  buildcontext: challenge
+  sandboxed: false
+  ports:
+  - 3000/http
+  flag:
+    value: "FLAG{t3mpl473_1nj3c710n_f0r_7h3_w1n_RAND}"
+    type: env_dynamic
+points:
+  initial: 550
+  decay: 50
+  minimum: 100
+  function: linear
+build: true
+check: false

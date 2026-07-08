@@ -8,7 +8,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - CTF_FLAG=FLAG{dynamische_docker_konfiguration_erfolgreich_2026}
+      - FLAG=CLA{flag_flag_flag}
     deploy:
       resources:
         limits:

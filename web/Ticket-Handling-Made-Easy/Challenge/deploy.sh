@@ -28,6 +28,6 @@ docker run --name ticket-handling-made-easy \
     -t -i \
     -e HOST=127.0.0.1 \
     -e PORT=5000 \
-    -e FLAG="FLAG{7h15_71ck37_h45_b33n_d31373d_5ucc355fu11y}" \
+    -e FLAG="CLA{flag_flag_flag}" \
     --platform linux/amd64 \
     localhost/ticket-handling-made-easy

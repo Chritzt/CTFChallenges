@@ -13,8 +13,5 @@ COPY app.py .
 COPY entrypoint.sh .
 COPY templates/ ./templates/
 
-RUN chmod +x entrypoint.sh
 
-EXPOSE 5000
-
-ENTRYPOINT ["./entrypoint.sh"]
+EXPOSE 8080
