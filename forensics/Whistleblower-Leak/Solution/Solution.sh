@@ -1,1 +1,0 @@
-binwalk -e summer-trip.zip

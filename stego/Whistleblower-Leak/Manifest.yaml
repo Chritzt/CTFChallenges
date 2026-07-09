@@ -1,0 +1,16 @@
+_id: 1649005429
+name: whistleblower-leak
+display_name: "Whistleblower Leak"
+category: stego
+author:
+  name: Chritzt
+description: |
+  We heared that there was a whistleblower at a very popular fast food chain to steal a secret formular. We found a suspiciouse .zip but don't know what to do with it. It looks like a normal Vacation folder
+flag: "CLA{pl4nk70n_f1n4lly_g07_7h3_f0rmul4}"
+points:
+  initial: 550
+  decay: 50
+  minimum: 100
+  function: linear
+build: false
+check: false

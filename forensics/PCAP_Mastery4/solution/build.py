@@ -1,6 +1,6 @@
 from scapy.all import *
 
-flag = "FLAG{r0u71ng_l00p5_4r3_c0v3r7_ch4nn3l5}"
+flag = "CLA{r0u71ng_l00p5_4r3_c0v3r7_ch4nn3l5}"
 
 if len(flag) % 2 != 0:
     flag += " "

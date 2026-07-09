@@ -6,4 +6,4 @@
 
 However, our threat intel team suspects this wasn't an accident. A clever insider might have used this chaotic storm of "Time Exceeded" messages as a covert channel to leak sensitive data right under our noses."
 
-"FLAG{r0u71ng_l00p5_4r3_c0v3r7_ch4nn3l5}"
+"CLA{r0u71ng_l00p5_4r3_c0v3r7_ch4nn3l5}"

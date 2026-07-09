@@ -1,0 +1,16 @@
+_id: 1494626645
+name: vigenere-macchiato
+display_name: "Vigenère Macchiato"
+category: stego
+author:
+  name: Chritzt
+description: |
+  Someone threw a message in the coffee and it seems like it is brewed now. Please retrieve it
+flag: "CLA{br3w3d_53cr37}"
+points:
+  initial: 550
+  decay: 50
+  minimum: 100
+  function: linear
+build: false
+check: false

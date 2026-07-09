@@ -1,0 +1,16 @@
+_id: -2003438354
+name: pcap-mastery1
+display_name: "PCAP Mastery 1"
+category: forensic
+author:
+  name: Chritzt
+description: |
+  The IDS detected a weird TCP connection, please take a look
+flag: "CLA{pc4p_4n4ly515_pr0}"
+points:
+  initial: 550
+  decay: 50
+  minimum: 100
+  function: linear
+build: false
+check: false

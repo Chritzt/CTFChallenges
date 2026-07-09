@@ -1,0 +1,16 @@
+_id: 1830694595
+name: pcap-mastery2
+display_name: "PCAP Mastery 2"
+category: forensic
+author:
+  name: Chritzt
+description: |
+  Our monitoring system logged a routine connection test. Security says it's clean, but we suspect a leak.
+flag: "CLA{ttl_c4n_4l50_h1d3_s3cr3t5}"
+points:
+  initial: 550
+  decay: 50
+  minimum: 100
+  function: linear
+build: false
+check: false

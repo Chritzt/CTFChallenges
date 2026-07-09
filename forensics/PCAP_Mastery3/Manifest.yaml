@@ -1,0 +1,17 @@
+name: pcap-mastery3
+display_name: "PCAP Mastery 3"
+category: forensic
+author:
+  name: Chritzt
+description: |
+  We intercepted a highly confidential file transfer, but the suspect used HTTPS to encrypt the traffic. However, our field agents managed to dump the volatile TLS session keys from the client's memory before the machine powered down.
+
+  Can you piece the clues together and reconstruct the secret document?
+flag: "CLA{7l5_d3cryp710n_w45_5ucc355ful}"
+points:
+  initial: 550
+  decay: 50
+  minimum: 100
+  function: linear
+build: false
+check: false

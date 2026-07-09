@@ -8,7 +8,7 @@ def create_modbus_write_packet(trans_id, register, value_16bit):
     
     return mbap + pdu
 
-flag = "FLAG{m0dbus_1ndus7r14l_s4b074g3_07}"
+flag = "CLA{m0dbus_1ndus7r14l_s4b074g3_07}"
 if len(flag) % 2 != 0:
     flag += " "
 

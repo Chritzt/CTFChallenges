@@ -1,0 +1,16 @@
+_id: 1218834271
+name: pcap-mastery5
+display_name: "PCAP Mastery 5"
+category: forensic
+author:
+  name: Chritzt
+description: |
+  The cooling system of the main fermentation tanks started acting completely erratically, threatening to ruin the next batch of beer. Our on-site engineers managed to capture a network trace from the SCADA network link directly leading to the PLC (SPS).
+flag: "CLA{m0dbus_1ndus7r14l_s4b074g3_07}"
+points:
+  initial: 550
+  decay: 50
+  minimum: 100
+  function: linear
+build: false
+check: false
