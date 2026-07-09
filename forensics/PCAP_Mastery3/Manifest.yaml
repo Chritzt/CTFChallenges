@@ -1,13 +1,14 @@
+_id: 822161480
 name: pcap-mastery3
 display_name: "PCAP Mastery 3"
 category: forensic
 author:
   name: Chritzt
-description: |
-  We intercepted a highly confidential file transfer, but the suspect used HTTPS to encrypt the traffic. However, our field agents managed to dump the volatile TLS session keys from the client's memory before the machine powered down.
-
-  Can you piece the clues together and reconstruct the secret document?
-flag: "CLA{7l5_d3cryp710n_w45_5ucc355ful}"
+description: "Our security operations center noticed strange, repetitive DNS traffic
+  leaving a compromised workstation. We suspect an attacker is exfiltrating sensitive
+  data right under our noses using a common network protocol. Can you analyze the
+  packet capture and piece the stolen secret back together?  \n"
+flag: "CLA{dn5_3xf1l7r4710n_15_5734l7h_b01}"
 points:
   initial: 550
   decay: 50

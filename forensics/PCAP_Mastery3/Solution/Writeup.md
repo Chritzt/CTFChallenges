@@ -1,7 +1,3 @@
 ## PCAP_Mastery3
 
-The PCAP in this challenge has a .png transfer over https, so encrypted, however also the sslkeys are exposed so the player can basically just decrypt it.
-
-Just head into wireshark, go to edit -> preferences, then search for Protocols and the SSL protocol and insert the given file as the `(Pre)-Master-Secret log filename`.
-
-Then the traffic is encrypted. Next head to file -> export objects -> http... and select the object that was extracted and save. This is the png with the flag on it.
+The Challenge isn't to difficult, it is just a few DNS requests and the packet wants to request to a few different domains. The first part of the domain is a part of the flag in base 64, do this with all the other dns requests and your done.
