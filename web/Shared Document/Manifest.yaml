@@ -1,0 +1,27 @@
+_id: -2024938135
+name: shared-doument
+display_name: "Shared Document"
+category: web
+author:
+  name: "Chritzt"
+description: >-
+  Welcome to our wedding guestbook! Feel free to search for other guests and see if
+  they left a lovely message.
+connectinfo: >-
+  http://{{ infos['shared-document-web']['5000']['hostname'] }}
+deployment:
+- name: shared-document-web
+  buildcontext: challenge
+  sandboxed: false
+  ports:
+  - 5000/http
+  flag:
+    value: "CLA{1D0R_L0G1C_FL4W_F0UND_W1TH_DB_RAND}"
+    type: env_dynamic
+points:
+  initial: 550
+  decay: 50
+  minimum: 100
+  function: linear
+build: true
+check: false

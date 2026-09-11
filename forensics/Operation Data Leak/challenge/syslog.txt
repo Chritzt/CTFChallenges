@@ -1,0 +1,8 @@
+Jul 23 08:12:01 initech-srv01 systemd[1]: Started Session 42 of user analyst.
+Jul 23 08:14:22 initech-srv01 sshd[1420]: Accepted publickey for analyst from 192.168.1.50 port 54122 ssh2
+Jul 23 08:20:05 initech-srv01 sudo:   analyst : TTY=pts/1 ; PWD=/home/analyst ; USER=root ; COMMAND=/bin/cat /var/log/auth.log
+Jul 23 08:25:10 initech-srv01 kernel: [ 1420.124565 ] EXT4-fs (sda1): mounted filesystem with ordered data mode.
+Jul 23 08:31:02 initech-srv01 internal_agent[3102]: [WARNING] Unauthorized read attempt on /root/evidence/secrets.conf by process PID 4102 (uid=1337)
+Jul 23 08:31:05 initech-srv01 internal_agent[3102]: [ALERT] Sensitive file accessed: /root/evidence/project_alpha_bkp.tar.gpg
+Jul 23 08:31:08 initech-srv01 internal_agent[3102]: [CRITICAL] Outbound transfer detected: IP 203.0.113.42 - Target: project_alpha_bkp.tar.gpg (Size: 42MB)
+Jul 23 08:32:00 initech-srv01 systemd[1]: Session 42 of user analyst logged out.

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Settings - Initech{% endblock %}
+{% block content %}
+    <h2>Global Corporate Synergy Toggles</h2>
+    <p>Configure your enterprise preferences below. (Note: These buttons don't do anything because state persistence is a myth).</p>
+    
+    <form onsubmit="alert('Settings saved to local emotional state!'); return false;">
+        <p><label><input type="checkbox" checked> Enable Quantum Synergy AI</label></p>
+        <p><label><input type="checkbox"> Auto-Deploy to Production on Friday Night</label></p>
+        <p><label><input type="checkbox" checked> Send Happiness Reports to CEO's Cat</label></p>
+        <button type="submit">Save Settings</button>
+    </form>
+{% endblock %}

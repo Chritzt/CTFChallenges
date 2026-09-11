@@ -1,0 +1,7 @@
+{
+  "name": "leetcode-pollution-challenge",
+  "version": "1.0.0",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

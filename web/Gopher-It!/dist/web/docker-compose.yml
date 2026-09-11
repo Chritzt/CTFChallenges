@@ -1,0 +1,35 @@
+services:
+  redis-backend:
+    image: redis:alpine
+    container_name: redis-backend
+    restart: unless-stopped
+    environment:
+      - FLAG=CLA{dummy_flag}
+    entrypoint: >
+      sh -c "
+      redis-server --protected-mode no &
+      sleep 2 &&
+      redis-cli set flag \"$$FLAG\" &&
+      wait
+      "
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 128M
+
+  web-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: web-ping-tool
+    ports:
+      - "5000:5000"
+    restart: unless-stopped
+    depends_on:
+      - redis-backend
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 256M

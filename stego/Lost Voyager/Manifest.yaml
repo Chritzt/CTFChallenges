@@ -1,0 +1,15 @@
+name: lost-voyager
+display_name: "Lost Voyager"
+category: stego
+author:
+  name: Chritzt
+description: |
+  After fifteen years of silence, a long-lost deep-space probe has started broadcasting a faint, recurring analog signal. It no longer responds to digital commands, but its backup telemetry systems are still looping. We’ve intercepted the raw audio transmission—can you decode the signal and recover the hidden data?
+flag: "CLA{V0yag3r_1s_l0st_1n_sp4c3}"
+points:
+  initial: 550
+  decay: 50
+  minimum: 100
+  function: linear
+build: false
+check: false

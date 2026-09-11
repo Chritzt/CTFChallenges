@@ -1,0 +1,30 @@
+_id: -945961235
+name: insider-trading
+display_name: "Insider Trading"
+category: web
+author:
+  name: "Chritzt"
+description: >-
+  Look at our new high frequency Trading Plattform. Go on and make some money for
+  you, but don't break anything.
+connectinfo: >-
+  http://{{ infos['insider-trading-web']['4000']['hostname'] }}
+deployment:
+- name: insider-trading-web
+  buildcontext: challenge
+  sandboxed: false
+  ports:
+  - 4000/http
+  flag:
+    value: 'CLA{c4ch3_p01s0n_0r_w5_h4ndsh4k3_RAND}'
+    type: env_dynamic
+- name: insider-trading-bot
+  buildcontext: challenge
+  sandboxed: false
+points:
+  initial: 550
+  decay: 50
+  minimum: 100
+  function: linear
+build: true
+check: false

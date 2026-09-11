@@ -1,0 +1,28 @@
+_id: 888821443
+name: yaml
+display_name: "YAML: Yet Another Malicious Language"
+category: web
+author:
+  name: "Chritzt"
+description: >-
+  Welcome to Initech's brand-new "Cloud-Synergy DevOps Dashboard" managed entirely
+  by automated AI pipelines! Management assures us that our legacy configuration importer
+  is enterprise-grade and completely secure.
+connectinfo: >-
+  http://{{ infos['yaml-web']['1337']['hostname'] }}
+deployment:
+- name: yaml-web
+  buildcontext: challenge
+  sandboxed: false
+  ports:
+  - 1337/http
+  flag:
+    value: "CLA{y4ml_l04d_1s_4_b4d_1d34_RAND}"
+    type: env_dynamic
+points:
+  initial: 550
+  decay: 50
+  minimum: 100
+  function: linear
+build: true
+check: false

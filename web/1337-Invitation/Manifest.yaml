@@ -1,5 +1,5 @@
 _id: -336340115
-name: 1337-invitation
+name: 1337-invitation-w
 display_name: "1337 Invitation"
 category: web
 author:
@@ -9,9 +9,9 @@ description: >-
   and only approved VIPs get the flag. They have an automated system where you can
   generate your own custom seat ticket as a PDF.
 connectinfo: >-
-  http://{{ infos['1337-invitation-web']['5000']['hostname'] }}
+  http://{{ infos['1337-invitation-w']['5000']['hostname'] }}
 deployment:
-- name: 1337-invitation-web
+- name: 1337-invitation-w
   buildcontext: challenge
   sandboxed: false
   ports:

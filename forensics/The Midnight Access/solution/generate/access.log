@@ -1,0 +1,66 @@
+185.220.101.5 - - [22/Jul/2026:01:02:31 +0000] "GET /admin/config.php?id=1' OR '1'='1 HTTP/1.1" 403 192
+185.220.101.5 - - [22/Jul/2026:01:04:33 +0000] "GET /index.php?page=../../../../etc/passwd HTTP/1.1" 400 150
+185.220.101.5 - - [22/Jul/2026:01:05:10 +0000] "GET /phpmyadmin/index.php HTTP/1.1" 404 209
+45.154.255.19 - - [22/Jul/2026:01:07:49 +0000] "GET /wp-login.php HTTP/1.1" 404 209
+194.26.29.116 - - [22/Jul/2026:01:14:39 +0000] "GET /administrator/index.php HTTP/1.1" 403 192
+194.26.29.116 - - [22/Jul/2026:01:17:21 +0000] "GET /index.php?q=<script>alert(1)</script> HTTP/1.1" 200 1240
+185.220.101.5 - - [22/Jul/2026:01:18:56 +0000] "POST /xmlrpc.php HTTP/1.1" 405 174
+185.220.101.5 - - [22/Jul/2026:01:19:13 +0000] "GET /server-status HTTP/1.1" 403 192
+185.220.101.5 - - [22/Jul/2026:01:27:12 +0000] "GET /api/v1/users?id=OR+1=1-- HTTP/1.1" 400 150
+45.154.255.19 - - [22/Jul/2026:01:28:11 +0000] "GET /.env HTTP/1.1" 404 209
+194.26.29.116 - - [22/Jul/2026:01:28:39 +0000] "POST /api/v1/login HTTP/1.1" 401 130
+45.154.255.19 - - [22/Jul/2026:01:30:19 +0000] "GET /shell.php?cmd=id HTTP/1.1" 404 209
+194.26.29.116 - - [22/Jul/2026:01:31:07 +0000] "GET /swagger/v1/swagger.json HTTP/1.1" 404 209
+185.220.101.5 - - [22/Jul/2026:01:32:20 +0000] "GET /git/config HTTP/1.1" 403 192
+194.26.29.116 - - [22/Jul/2026:01:32:32 +0000] "GET /backup.zip HTTP/1.1" 404 209
+45.154.255.19 - - [22/Jul/2026:01:37:45 +0000] "GET /actuator/env HTTP/1.1" 404 209
+45.154.255.19 - - [22/Jul/2026:01:38:10 +0000] "POST /api/v1/update?file=php://input HTTP/1.1" 500 310
+45.154.255.19 - - [22/Jul/2026:01:43:35 +0000] "GET /config.json HTTP/1.1" 404 209
+185.220.101.5 - - [22/Jul/2026:01:45:38 +0000] "GET /debug/default/view?panel=config HTTP/1.1" 404 209
+185.220.101.5 - - [22/Jul/2026:01:50:10 +0000] "GET /vendor/composer/installed.json HTTP/1.1" 404 209
+185.220.101.5 - - [22/Jul/2026:01:57:08 +0000] "POST /api/v1/graphql HTTP/1.1" 400 115
+185.220.101.5 - - [22/Jul/2026:01:57:46 +0000] "GET /api/v1/status?format=json&debug=true HTTP/1.1" 200 412
+185.220.101.5 - - [22/Jul/2026:02:04:50 +0000] "GET /console/ HTTP/1.1" 404 209
+185.220.101.5 - - [22/Jul/2026:02:07:33 +0000] "GET /sitemap.xml HTTP/1.1" 200 840
+45.154.255.19 - - [22/Jul/2026:02:14:11 +0000] "GET /robots.txt HTTP/1.1" 200 120
+185.220.101.5 - - [22/Jul/2026:02:15:20 +0000] "POST /api/v1/upload HTTP/1.1" 401 112
+194.26.29.116 - - [22/Jul/2026:02:16:31 +0000] "GET /v2/_catalog HTTP/1.1" 401 105
+185.220.101.5 - - [22/Jul/2026:02:17:31 +0000] "GET /api/v1/db/dump.sql HTTP/1.1" 404 209
+185.220.101.5 - - [22/Jul/2026:02:19:47 +0000] "GET /jenkins/login HTTP/1.1" 404 209
+194.26.29.116 - - [22/Jul/2026:02:21:14 +0000] "GET /metrics HTTP/1.1" 404 209
+185.220.101.5 - - [22/Jul/2026:02:26:30 +0000] "GET /api/v1/config/database.yml HTTP/1.1" 404 209
+194.26.29.116 - - [22/Jul/2026:02:30:39 +0000] "GET /.git/HEAD HTTP/1.1" 404 209
+194.26.29.116 - - [22/Jul/2026:02:35:39 +0000] "GET /api/v1/system/info HTTP/1.1" 401 112
+194.26.29.116 - - [22/Jul/2026:02:39:47 +0000] "POST /api/v1/auth/reset HTTP/1.1" 404 209
+185.220.101.5 - - [22/Jul/2026:02:40:00 +0000] "GET /storage/logs/laravel.log HTTP/1.1" 404 209
+185.220.101.5 - - [22/Jul/2026:02:40:07 +0000] "GET /config/parameters.yml HTTP/1.1" 404 209
+194.26.29.116 - - [22/Jul/2026:02:43:42 +0000] "GET /api/v1/healthcheck HTTP/1.1" 200 45
+45.154.255.19 - - [22/Jul/2026:02:46:30 +0000] "GET /info.php HTTP/1.1" 404 209
+45.154.255.19 - - [22/Jul/2026:02:49:40 +0000] "GET /test.php HTTP/1.1" 404 209
+185.220.101.5 - - [22/Jul/2026:02:49:52 +0000] "GET /api/v1/debug/vars HTTP/1.1" 403 192
+45.154.255.19 - - [22/Jul/2026:02:53:59 +0000] "GET /api/v1/internal/status HTTP/1.1" 403 192
+185.220.101.5 - - [22/Jul/2026:02:54:30 +0000] "GET /elmah.axd HTTP/1.1" 404 209
+45.154.255.19 - - [22/Jul/2026:02:57:19 +0000] "GET /api/v1/tokens HTTP/1.1" 401 112
+45.154.255.19 - - [22/Jul/2026:02:58:20 +0000] "GET /api/v1/session HTTP/1.1" 401 112
+185.220.101.5 - - [22/Jul/2026:02:58:57 +0000] "GET /api/v1/admin/routes HTTP/1.1" 403 192
+45.154.255.19 - - [22/Jul/2026:02:59:19 +0000] "GET /api/v1/auth/check HTTP/1.1" 401 112
+185.220.101.5 - - [22/Jul/2026:03:00:35 +0000] "GET /api/v1/metrics/prometheus HTTP/1.1" 403 192
+194.26.29.116 - - [22/Jul/2026:03:02:25 +0000] "GET /api/v1/config/app.json HTTP/1.1" 404 209
+185.220.101.5 - - [22/Jul/2026:03:03:02 +0000] "GET /api/v1/internal/config HTTP/1.1" 403 192
+45.154.255.19 - - [22/Jul/2026:03:04:07 +0000] "GET /api/v1/admin/settings HTTP/1.1" 403 192
+185.220.101.5 - - [22/Jul/2026:03:07:30 +0000] "GET /api/v1/setup/database HTTP/1.1" 404 209
+45.154.255.19 - - [22/Jul/2026:03:13:17 +0000] "GET /api/v1/admin/users HTTP/1.1" 403 192
+10.0.99.15 - - [22/Jul/2026:03:14:02 +0000] "POST /api/v1/telemetry HTTP/1.1" 200 88 "10.0.99.15" "InitechAgent/1.1"
+192.168.1.50 - - [22/Jul/2026:03:14:20 +0000] "PUT /api/v1/config/sync HTTP/1.1" 204 0 "192.168.1.50" "InternalSync/4.0"
+10.0.99.22 - - [22/Jul/2026:03:14:45 +0000] "POST /api/v1/logs/push HTTP/1.1" 201 150 "10.0.99.22" "Fluentd/1.14"
+198.51.100.88 - - [22/Jul/2026:03:15:42 +0000] "POST /api/v1/auth/token.php?action=impersonate&user=milton HTTP/1.1" 200 542 "198.51.100.88" "Mozilla/5.0 (X11; Linux x86_64) VaultClient/2.4"
+10.0.99.15 - - [22/Jul/2026:03:15:45 +0000] "POST /api/v1/telemetry HTTP/1.1" 200 88 "10.0.99.15" "InitechAgent/1.1"
+45.154.255.19 - - [22/Jul/2026:03:15:50 +0000] "GET /api/v1/users?search=admin HTTP/1.1" 401 112 "45.154.255.19" "Mozilla/5.0"
+194.26.29.116 - - [22/Jul/2026:03:28:34 +0000] "GET /api/v1/admin/logs HTTP/1.1" 403 192
+45.154.255.19 - - [22/Jul/2026:03:32:20 +0000] "GET /api/v1/debug/info HTTP/1.1" 403 192
+194.26.29.116 - - [22/Jul/2026:03:32:43 +0000] "GET /api/v1/backup/list HTTP/1.1" 403 192
+185.220.101.5 - - [22/Jul/2026:03:33:51 +0000] "GET /api/v1/internal/status HTTP/1.1" 403 192
+185.220.101.5 - - [22/Jul/2026:03:34:02 +0000] "GET /api/v1/admin/roles HTTP/1.1" 403 192
+185.220.101.5 - - [22/Jul/2026:03:37:27 +0000] "GET /api/v1/auth/keys HTTP/1.1" 403 192
+45.154.255.19 - - [22/Jul/2026:03:43:25 +0000] "GET /api/v1/system/version HTTP/1.1" 403 192
+45.154.255.19 - - [22/Jul/2026:03:46:39 +0000] "GET /api/v1/database/status HTTP/1.1" 403 192

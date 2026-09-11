@@ -1,0 +1,16 @@
+_id: -1288273451
+name: the-whispering-clusters
+display_name: "The Whispering Clusters"
+category: forensic
+author:
+  name: Chritzt
+description: |
+  An insider threat exfiltrated data by hiding it on a USB drive. Before leaving, they tried to blend the data into legitimate files to cover their tracks. Our digital forensics team suspects that the payload is hidden in the slack space of the filesystem clusters and obfuscated. Inspect the raw image dump and reconstruct the transmission.
+flag: "CLA{Fl4sh_Dr1v3_Sl4ck_Sp4c3_F0r3ns1cs}"
+points:
+  initial: 550
+  decay: 50
+  minimum: 100
+  function: linear
+build: false
+check: false

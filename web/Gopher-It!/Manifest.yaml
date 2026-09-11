@@ -1,0 +1,32 @@
+_id: -1354019542
+name: gopher-it
+display_name: "Gopher It!"
+category: web
+author:
+  name: "Chritzt"
+description: >-
+  "Our Redis backend is perfectly safe and isolated!" boasted our junior developer.
+
+  Well, they forgot that a prehistoric internet protocol from 1991 is still lurking
+  inside their "secure" ping tool. Time to teach them a lesson and go for it!
+connectinfo: >-
+  http://{{ infos['gopher-it-web']['5000']['hostname'] }}
+deployment:
+- name: gopher-it-web
+  buildcontext: challenge/web
+  sandboxed: false
+  ports:
+  - 5000/http
+- name: gopher-it-redis
+  buildcontext: challenge/redis
+  sandboxed: false
+  flag:
+    value: CLA{g0ph3r_is_th3_ultim4t3_redis_whisperer_RAND}
+    type: env_dynamic
+points:
+  initial: 550
+  decay: 50
+  minimum: 100
+  function: linear
+build: true
+check: false

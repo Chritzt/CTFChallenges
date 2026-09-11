@@ -1,11 +1,7 @@
-
-FROM docker.io/library/python:3.12-slim
-
+FROM python:3.12-slim
+RUN apt-get update && apt-get install -y iputils-ping curl && rm -rf /var/lib/apt/lists/*
+RUN pip install requests
+COPY exploit /app/exploit
+RUN chmod +x /app/exploit
 WORKDIR /app
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-
-COPY exploit .
-RUN chmod +x exploit
-
-CMD /usr/bin/timeout -k 5 ${TIMEOUT} ./exploit
+CMD ["./exploit"]

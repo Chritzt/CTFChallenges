@@ -1,0 +1,16 @@
+_id: -541879374
+name: bytecode-baker
+display_name: "Bytecode Baker"
+category: reversing
+author:
+  name: Chritzt
+description: |
+  Welcome to the secure licensing portal! We locked our newest software version behind a compiled Python script. Can you bypass the validation and retrieve the flag?
+flag: CLA{by73c0d3_b4k3r_m4st3r}
+points:
+  initial: 550
+  decay: 50
+  minimum: 100
+  function: linear
+build: false
+check: false

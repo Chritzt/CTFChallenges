@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  exfil-challenge:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "1337:1337"
+    privileged: true   # <--- Das gibt dem Container alle Rechte, die nsjail für die Mounts braucht
+    restart: unless-stopped

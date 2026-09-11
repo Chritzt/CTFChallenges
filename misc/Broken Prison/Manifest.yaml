@@ -1,0 +1,26 @@
+_id: 483235785
+name: broken-prison
+display_name: "Broken Prison"
+category: misc
+author:
+  name: Chritzt
+description: |
+  We have blocked every bad word, so you can never get our secret.
+connectinfo: >-
+  <code>snicat {{ infos['broken-prison-misc']['1337']['hostname'] }}</code><br> More info: <a href="https://github.com/CTFd/snicat" target="_blank">snicat</a>
+deployment:
+- name: broken-prison-misc
+  buildcontext: challenge
+  sandboxed: false
+  ports:
+  - 1337/tcp
+  flag:
+    value: CLA{pDBCmD_g035_bWrr_uP_uP_4nD_4w4Y_RAND}
+    type: env_dynamic
+points:
+  initial: 550
+  decay: 50
+  minimum: 100
+  function: linear
+build: true
+check: false

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <title>MemoShare Dashboard</title>
+</head>
+<body class="container">
+    <h1>MemoShare Dashboard</h1>
+    
+    <section>
+        <h2>Your Memos</h2>
+        <table id="memo-table">
+            <thead><tr><th>ID</th><th>Content</th></tr></thead>
+            <tbody id="memo-list"></tbody>
+        </table>
+    </section>
+
+    <section>
+        <hr>
+        <h2>Share Memo</h2>
+        <small>Share your memos with the email of anoth user.</small>
+        <div class="grid">
+            <input type="number" id="memo_id" placeholder="Memo ID">
+            <input type="email" id="email" placeholder="Empfänger E-Mail">
+            <button onclick="shareMemo()">Teilen</button>
+        </div>
+    </section>
+
+    <script>
+        async function loadMemos() {
+            const res = await fetch('/api/memo/view');
+            const data = await res.json();
+            const list = document.getElementById('memo-list');
+            list.innerHTML = data.memos.map(m => `<tr><td>${m.id}</td><td>${m.content}</td></tr>`).join('');
+        }
+        async function shareMemo() {
+            const res = await fetch('/api/memo/share', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    memo_id: document.getElementById('memo_id').value,
+                    email: document.getElementById('email').value
+                })
+            });
+            if(res.ok) { loadMemos(); } else { alert("Fehler beim Teilen!"); }
+        }
+        window.onload = loadMemos;
+    </script>
+</body>
+</html>

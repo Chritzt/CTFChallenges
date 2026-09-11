@@ -1,0 +1,16 @@
+_id: -1069104148
+name: secret-sauce
+display_name: "Secret Sauce"
+category: stego
+author:
+  name: Chritzt
+description: |
+  It seems like Kevin leaked our supersecret API key in the git repository, but I just can'Ät find where!
+flag: "CLA{G1t_N3v3r_F0rg3ts_D4ngl1ng_0bj3cts}"
+points:
+  initial: 550
+  decay: 50
+  minimum: 100
+  function: linear
+build: false
+check: false

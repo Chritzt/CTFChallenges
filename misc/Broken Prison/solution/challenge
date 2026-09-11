@@ -1,0 +1,48 @@
+import os
+import sys
+sys.__stdin__.isatty = lambda: True
+
+FLAG = os.environ.get("FLAG", "CLA{dummy_jail_flag}")
+
+def main():
+    print("--- Welcome to the Python-Security-Terminal ---")
+    print("Do what you want with the console")
+    
+    while True:
+        try:
+            user_code = input("> ")
+            if not user_code:
+                continue 
+        except EOFError:
+            break
+            
+        blocked = ["os", "sys", "eval", "exec", "open", "read", "import", "subprocess", "FLAG"]
+        
+        violates = False
+        for word in blocked:
+            if word in user_code:
+                print(f"Warning! That Keyword '{word}' is not permitted!")
+                violates = True
+                break
+        
+        if violates:
+            continue 
+            
+        safe_globals = {
+            "__builtins__": {
+                "print": print,
+                "breakpoint": breakpoint, 
+                "str": str,
+                "int": int,
+                "__import__": __import__  
+            }
+        }
+        
+        try:
+            # Führt den Code direkt sofort aus!
+            exec(user_code, safe_globals, {})
+        except Exception as e:
+            print(f"Error: {e}")
+
+if __name__ == "__main__":
+    main()

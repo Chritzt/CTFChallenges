@@ -1,0 +1,16 @@
+_id: 1912471883
+name: broken-finder
+display_name: "Broken Finder"
+category: misc
+author:
+  name: Chritzt
+description: |
+  We intercepted this QR code from a secure transmission, but it seems completely unreadable by any scanner. The edges look heavily distorted and corrupted. Can you fix the missing pieces and extract the flag?
+flag: "CLA{qr_c0d3_r3p41r_m4st3r}"
+points:
+  initial: 550
+  decay: 50
+  minimum: 100
+  function: linear
+build: false
+check: false

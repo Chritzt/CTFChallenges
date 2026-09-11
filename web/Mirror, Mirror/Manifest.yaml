@@ -1,0 +1,32 @@
+_id: 1596147848
+name: mirror-mirror
+display_name: "Mirror, Mirror"
+category: web
+author:
+  name: "Chritzt"
+description: >-
+  The Lead Developer at NanoCorp just migrated the internal API. He claims: "The new
+  protocol is binary! Without the exact API definition, nobody can even guess the
+  endpoints. It's unhackable!"
+
+  He left the base definition (public.proto), but we suspect he completely forgot
+  about something. Can you find the hidden administrative service and ask the magic
+  mirror who the fairest of them all is?
+connectinfo: >-
+  http://{{ infos['mirror-mirror-web']['50051']['hostname'] }}
+deployment:
+- name: mirror-mirror-web
+  buildcontext: challenge
+  sandboxed: false
+  ports:
+  - 50051/http
+  flag:
+    value: "CLA{0v3er3ng1n33r1ng_d03s_n0t_4llw4ys_w0rk_RAND}"
+    type: env_dynamic
+points:
+  initial: 550
+  decay: 50
+  minimum: 100
+  function: linear
+build: true
+check: false

@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package nanocorp;
+
+service UserService {
+  rpc GetStatus (StatusRequest) returns (StatusResponse);
+}
+
+message StatusRequest {
+  string username = 1;
+}
+
+message StatusResponse {
+  string message = 1;
+}
+
+
+service MagicMirrorService {
+  rpc RevealSecret (SecretRequest) returns (SecretResponse);
+}
+
+message SecretRequest {
+  string question = 1;
+}
+
+message SecretResponse {
+  string flag = 1;
+}

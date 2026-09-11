@@ -1,0 +1,26 @@
+_id: 1651057517
+name: operation-data-leak
+display_name: "Operation Data Leak"
+category: forensic
+author:
+  name: Chritzt
+description: "A confidential backup was exfiltrated from our server. \nConnect to
+  the analysis environment and find out how it happened.\n"
+connectinfo: >-
+  <code>snicat {{ infos['operation-data-leak-forensic']['1337']['hostname'] }}</code><br>
+deployment:
+- name: operation-data-leak-forensic
+  buildcontext: challenge
+  sandboxed: true
+  ports:
+  - 1337/tcp
+  flag:
+    value: CLA{3xf1ltr4t10n_l0gs_4r3_n3v3r_c134n}
+    type: static
+points:
+  initial: 500
+  decay: 50
+  minimum: 100
+  function: linear
+build: true
+check: false

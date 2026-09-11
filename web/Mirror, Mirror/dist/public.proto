@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package nanocorp;
+
+service UserService {
+  rpc GetStatus (StatusRequest) returns (StatusResponse);
+}
+
+message StatusRequest {
+  string username = 1;
+}
+
+message StatusResponse {
+  string message = 1;
+}

@@ -1,0 +1,18 @@
+_id: 712895896
+name: the-midnight-access
+display_name: "The Midnight Access"
+category: forensic
+author:
+  name: Chritzt
+description: |
+  The Initech corporation is on the verge of releasing a top-secret project. On the night of July 22, 2026, chaos breaks out in the server room. However, while the security team is distracted by standard DDoS attacks and web scans from external IPs, a targeted, internal conspiracy unfolds in the background. Find the IP address of the internal thread.
+
+  Flag: CLA{IP_Address} (example: CLA{172.168.12.3})
+flag: "CLA{198.51.100.88}"
+points:
+  initial: 550
+  decay: 50
+  minimum: 100
+  function: linear
+build: false
+check: false

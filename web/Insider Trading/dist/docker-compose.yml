@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  graphql-server:
+    build: .
+    container_name: ctf_graphql_server
+    ports:
+      - "4000:4000"
+    environment:
+      - NODE_ENV=production
+    networks:
+      - ctf_network
+    restart: always
+
+  admin-bot:
+    build: .
+    container_name: ctf_admin_bot
+    depends_on:
+      - graphql-server
+    environment:
+      - NODE_ENV=production
+    networks:
+      - ctf_network
+    command: ["node", "-e", "console.log('[+] Admin-Infrastruktur aktiv.'); setInterval(() => {}, 3600000);"]
+    restart: always
+
+networks:
+  ctf_network:
+    driver: bridge

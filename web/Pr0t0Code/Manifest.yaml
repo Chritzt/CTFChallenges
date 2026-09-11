@@ -1,0 +1,28 @@
+_id: -1825073088
+name: pr0t0code
+display_name: "Pr0t0Code"
+category: web
+author:
+  name: "Chritzt"
+description: >-
+  Our new automated algorithm testing engine allows you to submit custom test suites
+  alongside your code. Don't worry about standard sandbox escapes-our execution environment
+  is completely locked down from the outside.
+connectinfo: >-
+  http://{{ infos['pr0t0code-web']['1337']['hostname'] }}
+deployment:
+- name: pr0t0code-web
+  buildcontext: challenge
+  sandboxed: false
+  ports:
+  - 1337/http
+  flag:
+    value: "CLA{Pr0t0typ3_P0llut10n_Is_Al1v3_And_W3ll_RAND}"
+    type: env_dynamic
+points:
+  initial: 550
+  decay: 50
+  minimum: 100
+  function: linear
+build: true
+check: false

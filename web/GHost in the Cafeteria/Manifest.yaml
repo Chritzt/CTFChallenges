@@ -1,0 +1,37 @@
+_id: -441659651
+name: ghost-in-the-cafeteria
+display_name: "Ghost in the Cafeteria"
+category: web
+author:
+  name: "Chritzt"
+description: >-
+  Someone invited a ghost into the corporate network, and now the internal kiosk is
+  taking routing advice from complete strangers. It is supposed to only fetch the
+  standard menu, but take a close look. Remember: in this kitchen, user input is always
+  on the menu!
+connectinfo: >-
+  http://{{ infos['ghost-in-the-cafeteria-web']['5000']['hostname'] }}
+deployment:
+# 1. Container: Die Cafeteria (Web-Interface)
+- name: ghost-in-the-cafeteria-web
+  buildcontext: challenge/Cafeteria
+  sandboxed: false
+  ports:
+  - 5000/http
+
+# 2. Container: Die API im Hintergrund (Exakt benannt nach deiner Compose!)
+- name: internal-api
+  buildcontext: challenge/api
+  sandboxed: false
+  ports:
+  - 5000/http
+  flag:
+    value: "CLA{h057_h34d3r_55rf_w3b_c4f3t3r14_RAND}"
+    type: env_dynamic
+points:
+  initial: 550
+  decay: 50
+  minimum: 100
+  function: linear
+build: true
+check: false

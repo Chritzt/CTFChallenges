@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Five-Finger Discount Store</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f5f7fb; color: #333; padding: 40px 20px; }
+        
+        h1 { margin-bottom: 10px; color: #2c3e50; }
+        .subtitle { color: #7f8c8d; margin-bottom: 30px; font-size: 1.1em; }
+        .balance-card { background: #fff; padding: 15px 25px; display: inline-block; border-radius: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 40px; border: 1px solid #e2e8f0; }
+        .balance-card strong { color: #27ae60; font-size: 1.2em; }
+
+        .shop-container { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; max-width: 1000px; margin: 0 auto; }
+        
+        .card { background: white; border-radius: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.05); width: 260px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #e2e8f0; transition: transform 0.2s; }
+        .card:hover { transform: translateY(-5px); }
+        
+        /* Das Highlight für unser Flaggen-Item */
+        .premium { border: 2px solid #f1c40f; background: linear-gradient(180deg, #fff 80%, #fef9e7 100%); }
+        .premium h3 { color: #d4ac0d; }
+
+        h3 { font-size: 1.4em; margin-bottom: 15px; color: #2c3e50; }
+        .price { font-size: 1.3em; font-weight: bold; color: #34495e; margin-bottom: 20px; }
+        
+        button { background: #3498db; color: white; border: none; padding: 12px; border-radius: 8px; font-weight: bold; font-size: 1em; cursor: pointer; width: 100%; transition: background 0.2s; }
+        button:hover { background: #2980b9; }
+        .premium button { background: #f1c40f; color: #2c3e50; }
+        .premium button:hover { background: #d4ac0d; }
+    </style>
+</head>
+<body>
+
+    <h1>🛍️ Five-Finger Discount Store</h1>
+    <p class="subtitle">The Exclusive store for Cybersecurity Specialists.</p>
+
+    <div class="balance-card">
+        Your money: <strong>1000,00 €</strong>
+    </div>
+
+    <div class="shop-container">
+        {% for article in articles %}
+            <div class="card {% if article.id == 3 %}premium{% endif %}">
+                <div>
+                    <h3>{{ article.name }}</h3>
+                    <p class="price">{{ "{:,.2f}".format(article.price) }} €</p>
+                </div>
+                
+                <form action="/buy" method="POST">
+                    <input type="hidden" name="id" value="{{ article.id }}">
+                    
+                    <input type="hidden" name="money" value="1000">
+                    
+                    <button type="submit">Buy now</button>
+                </form>
+            </div>
+        {% endfor %}
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  yaml-challenge:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: yaml-challenge-app
+    ports:
+      - "1337:1337"
+    restart: always

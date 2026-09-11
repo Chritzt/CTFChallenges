@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Pr0t0Code (Pseudo-Leetcode) Secure IDE</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-light">
+    <div class="container mt-5">
+        <h2>Pr0t0Code (Pseudo-Leetcode) – Algorithm Runner</h2>
+        <p class="text-secondary">Task: Implement a solution to safe the world</p>
+        <hr class="border-secondary">
+
+        <div class="row">
+            <div class="col-md-8">
+                <h5>Your JavaScript Code:</h5>
+                <textarea id="code" class="form-control bg-secondary text-light font-monospace mb-3" rows="10">function solve() {\n    return true;\n}</textarea>
+            </div>
+            <div class="col-md-4">
+                <h5>Own Testcases (JSON):</h5>
+                <textarea id="testcases" class="form-control bg-secondary text-light font-monospace mb-3" rows="10">{\n  "custom_input": [1, 2, 3]\n}</textarea>
+            </div>
+        </div>
+
+        <button onclick="runCode()" class="btn btn-success px-4 py-2">Run code and test</button>
+
+        <div class="mt-4">
+            <h5>Results:</h5>
+            <pre id="output" class="bg-black p-3 border border-secondary text-success font-monospace" style="min-height: 80px;">Nothing yet...</pre>
+        </div>
+    </div>
+
+    <script>
+        async function runCode() {
+            const outputEl = document.getElementById('output');
+            outputEl.innerText = "Sende Daten an Test-Engine...";
+            
+            try {
+                const response = await fetch('/api/run', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        code: document.getElementById('code').value,
+                        testcases: JSON.parse(document.getElementById('testcases').value)
+                    })
+                });
+                const data = await response.json();
+                outputEl.innerText = JSON.stringify(data, null, 2);
+            } catch (err) {
+                outputEl.innerText = "Fehler: " + err.message;
+            }
+        }
+    </script>
+</body>
+</html>
